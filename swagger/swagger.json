@@ -1,0 +1,289 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "description": "Swagger Doc For Find-Apps Api ",
+        "version": "1.0.0",
+        "title": "AdminPanil Apis"
+    },
+    "tags": [
+        {
+            "name": "List Of API",
+            "description": ""
+        }
+    ],
+    "securityDefinitions": {
+        "Bearer": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header"
+        }
+    },
+    "paths": {
+        "/admin/adminLogin": {
+            "post": {
+                "tags": [
+                    "admin"
+                ],
+                "summary": "adminLogin",
+                "description": "adminLogin ",
+                "operationId": "adminLogin",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Admin"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {}
+            }
+        },
+        "/admin/addUser": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "addUser",
+                "description": "addUser ",
+                "operationId": "addUser",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/User"
+                                
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "security": [
+                    {
+                        "bearerAuth": [
+                            {
+                                "type": "http",
+                                "scheme": "bearer",
+                                "bearerFormat": "JWT"
+                            }
+                        ]
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/admin/updateUser/{id}": {
+            "put": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "updateUser",
+                "description": "updateUser ",
+                "operationId": "updateUser",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/User"
+                                
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "security": [
+                    {
+                        "bearerAuth": [
+                            {
+                                "type": "http",
+                                "scheme": "bearer",
+                                "bearerFormat": "JWT"
+                            }
+                        ]
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/admin/getUsers": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": " getUsers",
+                "security": [
+                    {
+                        "bearerAuth": [
+                            {
+                                "type": "http",
+                                "scheme": "bearer",
+                                "bearerFormat": "JWT"
+                            }
+                        ]
+                    }
+                ],
+                "description": "getkholu ",
+                "operationId": "getkholu",
+                "responses": {}
+            }
+        },
+        "/admin/deleteuser/{id}": {
+            "delete": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "deleteuser",
+                "description": "deleteuser ",
+                "operationId": "deleteuser",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "security": [
+                    {
+                        "bearerAuth": [
+                            {
+                                "type": "http",
+                                "scheme": "bearer",
+                                "bearerFormat": "JWT"
+                            }
+                        ]
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/admin/getUser/{id}": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": " getUser",
+                "security": [
+                    {
+                        "bearerAuth": [
+                            {
+                                "type": "http",
+                                "scheme": "bearer",
+                                "bearerFormat": "JWT"
+                            }
+                        ]
+                    }
+                ],
+                "description": "getkholu ",
+                "operationId": "getkholu",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {}
+            }
+        }
+    },
+    "externalDocs": {
+        "description": "Find out more about Swagger",
+        "url": "http://swagger.io"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:5000"
+        }
+    ],
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "scheme": "bearer",
+                "bearerFormat": "JWT"
+            }
+        },
+        "schemas": {
+            "Admin": {
+                "type": "object",
+                "required": [
+                    "name",
+                    "email",
+                    "password",
+                    "type"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "number",
+                        "example": "1"
+                    },
+                    "name": {
+                        "type": "string",
+                        "example": "Harsh"
+                    },
+                    "email": {
+                        "type": "string",
+                        "example": "fghbdwbj@gmail.com"
+                    },
+                    "password": {
+                        "type": "string",
+                        "example": "123456bgt"
+                    },
+                    "type": {
+                        "type": "string",
+                        "example": "adimn"
+                    }
+                }
+            },
+            "User": {
+                "type": "object",
+                "required": [
+                    "name",
+                    "email",
+                    "phone",
+                    "city",
+                    "state",
+                    "country"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "number",
+                        "example": "1"
+                    },
+                    "name": {
+                        "type": "string",
+                        "example": "Ramkhera"
+                    },
+                    "email": {
+                        "type": "string",
+                        "example": "dfghj@gmnail.com"
+                    },
+                    "phone": {
+                        "type": "number",
+                        "example": 55555555652
+                    },
+                    "city": {
+                        "type": "string",
+                        "example": "Bijnor"
+                    },
+                    "state": {
+                        "type": "string",
+                        "example": "UttarPradesh"
+                    },
+                    "country": {
+                        "type": "string",
+                        "example": "India"
+                    }
+                }
+            }
+        }
+    }
+}
